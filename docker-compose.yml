@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  mysql:
+    # nó sẽ tìm kiếm image trên docker hub rồi pull về nếu không có trong docker desktop
+    image: mysql
+    # nếu không có container_name thì nó sẽ tự động đặt tên: <tên project>_1 vd: BUOI4-ORM_1
+    container_name: node26-phone-mysql
+    # một giá trị thì viết ngang, nhiều giá trị thì gạch đầu dòng
+    environment:
+      - MYSQL_ROOT_PASSWORD=1234
+      - MYSQL_DATABASE=ShopDienThoai
+    ports:
+      - "3307:3305"
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: node26-phone-api
+    env_file:
+      - .env
+    ports:
+      - 4000:4000
+    depends_on:
+      - mysql
+    command: ["/app/wait-for", "mysql:3306", "--", "node", "src/index.js"]
