@@ -7,6 +7,7 @@ const {
   DB_DIALECT,
   DB_NAME,
   JWT_SERCRET,
+  PORT,
 } = process.env;
 const configs = {
   JWT_SERCRET,
@@ -16,6 +17,7 @@ const configs = {
   DB_PORT,
   DB_DIALECT,
   DB_NAME,
+  PORT,
 };
 
 module.exports = configs;

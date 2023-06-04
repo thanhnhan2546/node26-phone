@@ -5,6 +5,7 @@ const { AppError, handleErrors } = require("./helpers/error");
 const { sequelize } = require("./models");
 const jwt = require("jsonwebtoken");
 const { createStaff } = require("./controllers/staff.controllers");
+const { PORT } = require("./config");
 
 app.use(express.json());
 //get file từ server, nếu có static thì khi get hình ảnh không cần chữ static và ngược lại
@@ -33,4 +34,4 @@ app.get("/error", (req, res) => {
 // Phải được đặt bên dưới các routers
 app.use(handleErrors);
 
-app.listen(4000);
+app.listen(PORT);
