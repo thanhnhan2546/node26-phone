@@ -17,7 +17,7 @@ app.use(express.static("."));
 //cái này sẽ có dường dẫn là http://localhost:4000/1685639611948-423420322-NhapDiem-XemThoiHanDongHP-NhapDiem.drawio.png
 
 //--------------Tự động tạo các model và update các thay đổi trong model xuống DB---------------------
-// sequelize.sync({ alter: true });
+sequelize.sync({ alter: true });
 
 app.use("/api/v1", v1);
 
