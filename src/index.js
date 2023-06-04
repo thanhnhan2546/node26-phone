@@ -34,4 +34,4 @@ app.get("/error", (req, res) => {
 // Phải được đặt bên dưới các routers
 app.use(handleErrors);
 
-app.listen(4000);
+app.listen(PORT);
